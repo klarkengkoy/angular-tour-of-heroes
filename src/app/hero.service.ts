@@ -14,13 +14,12 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private heroesUrl = 'api/heroes';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
-  /** GET heroes from the server */
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
